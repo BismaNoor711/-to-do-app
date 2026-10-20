@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow | Student Planner</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header class="topbar">
+        <a href="#" class="logo"><span>✓</span> TaskFlow</a>
+        <button id="themeBtn" class="theme-btn" type="button">🌙 Dark Mode</button>
+    </header>
+
+    <main class="container">
+
+        <section class="welcome">
+            <div>
+                <p class="eyebrow">YOUR PERSONAL STUDY PLANNER</p>
+                <h1>Make today <span>count.</span></h1>
+                <p class="subtitle">Organize your subjects, manage your tasks, and reach your goals.</p>
+            </div>
+            <div class="date-card">
+                <span id="dayName">Today</span>
+                <strong id="todayDate"></strong>
+            </div>
+        </section>
+
+        <section class="stats">
+            <article class="stat-card">
+                <span class="stat-icon">📚</span>
+                <p>Total Tasks</p>
+                <h2 id="totalCount">0</h2>
+            </article>
+
+            <article class="stat-card">
+                <span class="stat-icon">✅</span>
+                <p>Completed</p>
+                <h2 id="doneCount">0</h2>
+            </article>
+
+            <article class="stat-card">
+                <span class="stat-icon">⏳</span>
+                <p>Remaining</p>
+                <h2 id="remainingCount">0</h2>
+            </article>
+        </section>
+
+        <section class="progress-card">
+            <div class="progress-heading">
+                <div>
+                    <h3>Daily Progress</h3>
+                    <p>Every small step matters.</p>
+                </div>
+                <strong id="progressPercent">0%</strong>
+            </div>
+            <div class="progress-track">
+                <div id="progressBar" class="progress-fill"></div>
+            </div>
+        </section>
+
+        <section class="workspace">
+
+            <section class="panel form-panel">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">PLAN YOUR DAY</p>
+                        <h2>Add a Task</h2>
+                    </div>
+                    <span class="heading-icon">✚</span>
+                </div>
+
+                <form id="taskForm">
+                    <label for="taskTitle">Task Name</label>
+                    <input
+                        type="text"
+                        id="taskTitle"
+                        placeholder="e.g. Complete JavaScript assignment"
+                        maxlength="150"
+                        required
+                    >
+
+                    <label for="category">Subject</label>
+                    <select id="category" required>
+                        <option value="Web Development">Web Development</option>
+                        <option value="Data Structures">Data Structures</option>
+                        <option value="Database Systems">Database Systems</option>
+                        <option value="Operating Systems">Operating Systems</option>
+                        <option value="Computer Networks">Computer Networks</option>
+                        <option value="Artificial Intelligence">Artificial Intelligence</option>
+                        <option value="Mathematics">Mathematics</option>
+                        <option value="Software Engineering">Software Engineering</option>
+                        <option value="Information Security">Information Security</option>
+                        <option value="Other">Other</option>
+                    </select>
+
+                    <div class="form-row">
+                        <div>
+                            <label for="priority">Priority</label>
+                            <select id="priority">
+                                <option value="High">High</option>
+                                <option value="Medium" selected>Medium</option>
+                                <option value="Low">Low</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="dueDate">Due Date</label>
+                            <input type="date" id="dueDate">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="primary-btn">+ Add Task</button>
+                    <p id="formMessage" class="message" aria-live="polite"></p>
+                </form>
+            </section>
+
+            <section class="panel tasks-panel">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">STAY ON TRACK</p>
+                        <h2>My Tasks</h2>
+                    </div>
+                    <span class="task-badge" id="taskBadge">0 tasks</span>
+                </div>
+
+                <input
+                    type="search"
+                    id="searchInput"
+                    class="search-input"
+                    placeholder="🔎 Search tasks or subjects..."
+                    aria-label="Search tasks"
+                >
+
+                <div class="filters" aria-label="Filter tasks">
+                    <button type="button" class="filter-btn active" data-filter="all">All</button>
+                    <button type="button" class="filter-btn" data-filter="active">Pending</button>
+                    <button type="button" class="filter-btn" data-filter="completed">Completed</button>
+                </div>
+
+                <div id="taskList" class="task-list"></div>
+
+                <div id="emptyState" class="empty-state" hidden>
+                    <span>📝</span>
+                    <h3 id="emptyTitle">No tasks found</h3>
+                    <p id="emptyText">Add a task to get started.</p>
+                </div>
+
+                <div class="task-footer">
+                    <span id="taskSummary">You have 0 tasks remaining.</span>
+                    <button type="button" id="clearCompletedBtn" class="text-btn">
+                        Clear completed
+                    </button>
+                </div>
+
+                <p id="apiMessage" class="message" aria-live="polite"></p>
+            </section>
+
+        </section>
+
+        <section class="api-card">
+            <div>
+                <span class="api-icon">⚡</span>
+                <div>
+                    <h3>Try JavaScript Fetch API</h3>
+                    <p>Import sample tasks from an online demo API.</p>
+                </div>
+            </div>
+            <button type="button" id="importBtn" class="secondary-btn">Import Demo Tasks</button>
+        </section>
+
+        <footer>
+            <p>Made with 💚 for productive students.</p>
+            <p>© <span id="year"></span> TaskFlow</p>
+        </footer>
+
+    </main>
+
+</body>
+</html>
+```
